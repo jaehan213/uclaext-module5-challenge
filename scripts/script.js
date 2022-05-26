@@ -29,7 +29,13 @@ for(let i = 0; i < localStorage.length; i++){
 }
 
 // displaying the current day and time and updating colors
+display();
+$("#currentDay").text(moment().format('LLLL'))
+
 setInterval(function(){
     $("#currentDay").text(moment().format('LLLL'));
-    display();
 }, 1000);
+
+setInterval(function(){
+    display();
+}, 5000);
