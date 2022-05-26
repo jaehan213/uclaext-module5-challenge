@@ -1,14 +1,13 @@
 // changing color of rows based on time
-var work24TimeArray = ["0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700"];
-console.log(moment().isBefore(moment(moment().format("YYYY[-]MM[-]DD "+ work24TimeArray[0]))));
+var work24TimeArray = ["0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800"];
+var work24TimeWithColon = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
 
 function display(){
     for(let i = 0; i < work24TimeArray.length-1; i++){
-        if(moment().isBefore(moment(moment().format("YYYY[-]MM[-]DD "+ work24TimeArray[i])))){
+        if(moment().isBefore(moment(moment().format("YYYY[-]MM[-]DD "+ work24TimeWithColon[i])))){
             $("#t"+work24TimeArray[i]).removeClass().addClass("future");
         }else{
-            if(moment().isSameOrAfter(moment(moment().format("YYYY[-]MM[-]DD "+ work24TimeArray[i+1])))){
-                console.log("works")
+            if(moment().isSameOrAfter(moment(moment().format("YYYY[-]MM[-]DD "+ work24TimeWithColon[i+1])))){
                 $("#t"+work24TimeArray[i]).removeClass().addClass("past");
             }else{
                 $("#t"+work24TimeArray[i]).removeClass().addClass("present");
